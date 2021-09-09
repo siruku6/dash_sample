@@ -1,7 +1,7 @@
 import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
 import flask
 
 
@@ -13,6 +13,10 @@ app.layout = html.Div(
     children=[
         html.H1(children="Hello Dash 2021"),
         html.Div(children="""Dash: A web application framework for Python."""),
+        html.Div(children=[
+            html.Div(id='output'),
+            html.Button(children='Hello', id='greet'),
+        ]),
         dcc.Graph(
             id="example-graph",
             figure={
@@ -30,6 +34,15 @@ app.layout = html.Div(
         ),
     ]
 )
+
+
+@app.callback(
+    Output('output', 'children'), [Input('greet', 'n_clicks')]
+)
+def onclick(n_clicks):
+    if n_clicks:
+        return "Hello!"
+    return ""
 
 
 if __name__ == "__main__":
