@@ -26,4 +26,4 @@ You need to install the following packages on your Host OS.
     $ ./container_raiser.sh
     ```
 
-And then, you can access [localhost:8050](http://localhost:8050) with your browser.
+And then, you can access [localhost:8050](http://localhost:8050){:target="_blank"} with your browser.
